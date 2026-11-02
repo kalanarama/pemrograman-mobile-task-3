@@ -117,14 +117,32 @@ class _HalamanPertamaState extends State<HalamanPertama> {
 
     // cari
     Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Halaman Cari',
+          'Cari Mahasiswa',
           style: TextStyle(
             fontSize: 20,
+            fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
+        ),
+        const SizedBox(height: 12),
+        const KartuMahasiswa(
+          nama: 'Nia Ramadani',
+          nim: '3012410702',
+          prodi: 'Informatika',
+        ),
+        const KartuMahasiswa(
+          nama: 'Hani Chen',
+          nim: '3012410332',
+          prodi: 'Informatika',
+        ),
+        const KartuMahasiswa(
+          nama: 'Alexander III',
+          nim: '3012410267',
+          prodi: 'Informatika',
         ),
       ],
     ),
@@ -206,6 +224,36 @@ class _HalamanPertamaState extends State<HalamanPertama> {
   }
 }
 
+class KartuMahasiswa extends StatelessWidget {
+  final String nama;
+  final String nim;
+  final String prodi;
+
+  const KartuMahasiswa({
+    super.key,
+    required this.nama,
+    required this.nim,
+    required this.prodi,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      elevation: 4,
+      child: ListTile(
+        leading: Icon(
+          Icons.person,
+          color: Colors.deepPurple.shade400,
+        ),
+        title: Text(nama),
+        subtitle: Text(
+          'NIM: $nim\nProdi: $prodi',
+        ),
+      ),
+    );
+  }
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
